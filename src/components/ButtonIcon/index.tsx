@@ -7,7 +7,9 @@ type Props = {
 const ButtonIcon = ( {text} : Props) => {
   return(
     <div className="button-container">
-      <a href="#props">{text}</a>
+      <button className="btn ">
+          <h6>{text}</h6>
+        </button>
     </div>
   );
 }

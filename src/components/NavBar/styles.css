@@ -12,3 +12,28 @@
   font-size: 24px;
   padding-left: 18px;
 }
+
+@media(min-width: 576px) {
+
+.NavBar-container h2{
+
+  padding-left: 24px;
+}
+}
+
+@media(min-width: 768px) {
+
+  
+  .NavBar-container h2{
+  
+    padding-left: 31px;
+  }
+}
+
+@media(min-width: 1200px) {
+
+.NavBar-container h2{
+
+  padding-left: 50px;
+}
+}
