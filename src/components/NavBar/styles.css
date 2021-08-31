@@ -7,6 +7,24 @@
   height: 60px;
 } 
 
+.btn-container {
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: #000;
+  margin-right: 18px;
+  width: 97px;
+  height: 30px;
+
+}
+
+.btn-container a{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2px;
+  font-weight: bold;
+}
+
 .NavBar-container h2{
 
   font-size: 24px;

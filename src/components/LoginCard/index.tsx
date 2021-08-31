@@ -1,4 +1,3 @@
-import ButtonIcon from "components/ButtonIcon";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from "react-router-dom";
@@ -97,7 +96,7 @@ const LoginCard = () => {
           </div>
         </div>
         <div className="login-submit">
-          <ButtonIcon text="FAZER LOGIN" />
+          <button className="btn">FAZER LOGIN</button>
         </div>
       </form>
     </div>

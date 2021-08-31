@@ -31,19 +31,14 @@ input.form-control.base-input {
   height: 50px;
   margin-top: 54px;
   border-radius: 5px;
-}
-
-.login-submit .button-container {
-  width: 100%;
-  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .login-submit .btn {
   border: none;
-}
-
-.login-submit a {
   font-size: 20px;
+  font-weight: bold;
 }
 
 @media (min-width: 576px) {
