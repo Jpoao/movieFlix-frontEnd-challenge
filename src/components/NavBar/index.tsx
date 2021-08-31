@@ -3,11 +3,11 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { getTokenData, isAuthenticated } from "util/auth";
-import { removeAuthData } from "util/storage";
+import { getAuthData, removeAuthData } from "util/storage";
 import "./styles.css";
 
 const NavBar = () => {
-  
+
   const { authContextData, setAuthContextData } = useContext(AuthContext);
 
   const history = useHistory();
@@ -40,7 +40,7 @@ const NavBar = () => {
       <h2>MovieFlix</h2>
       {authContextData.authenticated && (
         <div className="welcome-container">
-          <span>Bem vindo(a) {authContextData.tokenData?.user_name}</span>
+          <span>Bem vindo(a): {getAuthData().userName}</span>
           <div className="btn-container">
             <a onClick={handleSubmit} href="#SAIR">
               SAIR

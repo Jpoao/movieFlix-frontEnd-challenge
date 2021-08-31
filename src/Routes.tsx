@@ -1,6 +1,7 @@
 import NavBar from "components/NavBar";
 import Home from "pages/Home";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { isAuthenticated } from "util/auth";
 
 const Routes = () => {
   return (
@@ -8,12 +9,12 @@ const Routes = () => {
     <NavBar/>
       <Switch>
         <Route path="/" exact>
-          <Home />
+          {isAuthenticated() ? <Redirect to="/movies"/> : <Home />}
         </Route>
         <Route path="/movies" exact>
           <h1>MOVIES</h1>
         </Route>
-        <Route path="/MOVIES/1" exact>
+        <Route path="/moives/:movieId">
           <h1>MOVIES ID</h1>
         </Route>
       </Switch>
