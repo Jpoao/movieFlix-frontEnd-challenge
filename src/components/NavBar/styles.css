@@ -31,6 +31,10 @@
   padding-left: 18px;
 }
 
+.welcome-container span{
+  display: none;
+}
+
 @media(min-width: 576px) {
 
 .NavBar-container h2{
@@ -45,6 +49,18 @@
   .NavBar-container h2{
   
     padding-left: 31px;
+  }
+
+  .welcome-container span{
+    display: unset;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+
+  .welcome-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 }
 
