@@ -1,7 +1,12 @@
+import LoginCard from "../../components/LoginCard";
 import "./styles.css";
 
 const Home = () => {
-  return <h1>HOME</h1>;
+  return (
+    <div className="home-container">
+      <LoginCard />
+    </div>
+  );
 };
 
 export default Home;
