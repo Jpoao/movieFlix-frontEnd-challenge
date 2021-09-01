@@ -10,7 +10,7 @@ const Home = () => {
         <h3>Diga o que você achou do seu filme favorito</h3>
         <BannerImage />
       </div>
-      <LoginCard />
+        <LoginCard />
       </div>
   );
 };
