@@ -10,9 +10,10 @@ type FormData = {
   review: string;
 };
 
-type Review = {
+type ReviewData = {
   text: string;
   user: {
+    id: number;
     name: string;
   };
 };
@@ -23,12 +24,12 @@ const params: AxiosRequestConfig = {
 };
 
 const MoviesReview = () => {
-  
-  const [review, setReview] = useState<[Review]>();
+
+  const [reviewState, setReviewState] = useState<[ReviewData]>();
 
   useEffect(() => {
     requestBackend(params).then((response) => {
-      setReview(response.data);
+      setReviewState(response.data);
     });
   }, []);
 
@@ -66,10 +67,9 @@ const MoviesReview = () => {
         </div>
       )}
       <div className="review-container">
-        <Review />
-        <Review />
-        <Review />
-        <Review />
+              {reviewState?.map((element) => (
+                <Review name={element.user.name} text={element.text} key={element.user.id}/>
+              ))}
       </div>
     </div>
   );
