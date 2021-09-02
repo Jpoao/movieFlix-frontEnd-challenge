@@ -35,16 +35,26 @@ const MoviesReview = () => {
     requestBackend(params).then((response) => {
       setReviewState(response.data);
     });
-  }, []);
+  }, [reviewState?.length]);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit = () => {
-
+  const onSubmit = (formData : FormData) => {
+    const params: AxiosRequestConfig = {
+      method: "POST",
+      url: `/reviews`,
+      withCredentials: true,
+      data:{
+        text: formData.review,
+        movieId: movieId
+      }
+    };
+    requestBackend(params).then((response) => {
+      setReviewState(response.data);
+    }).finally(() => window.location.reload());
   };
 
   return (
@@ -58,9 +68,7 @@ const MoviesReview = () => {
                 required: "Campo obrigatório",
               })}
               type="text"
-              className={`form-control base-input ${
-                errors.review ? "is-invalid" : ""
-              }`}
+              className={"form-control base-input"}
               placeholder="Digite sua avaliação aqui!*"
               name="review"
             />
@@ -71,9 +79,9 @@ const MoviesReview = () => {
         </div>
       )}
       <div className="review-container">
-              {reviewState?.map((element) => (
+              {reviewState ? reviewState.map((element) => (
                 <Review name={element.user.name} text={element.text} key={element.user.id}/>
-              ))}
+              )) : ""}
       </div>
     </div>
   );
