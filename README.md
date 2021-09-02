@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# movieFlix-FrontEnd
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Projeto criado com [Create React App]
 
-## Available Scripts
+Saiba mais -> [Create React App](https://github.com/facebook/create-react-app).
 
-In the project directory, you can run:
+## Como rodar ?
+
+Na pasta raiz do projeto executando o comando: 
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+O projeto sera aberto em: [localhost:3030](http://localhost:3000).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Sobre o projeto
 
-### `yarn test`
+* Projeto movieFLix 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+App criado como parte de avaliação do bootCamp fullstack da devSuperior, ele consiste em uma tela responsiva "home" de rota "/" onde temos o login com autenticação e autorização na api do movieFLix, além de mais 2 telas com rotas protegidas para usuarios não logados, a tela "movies" de rota "/movies" onde temos umas listagem hardcode de 2 itens que levam a ultima tela, a tela "review" de rota "movies/:movieId" onde por fim temos o review dos usuarios em um terminado filme(movieId), optidos através da api, além de um formulario protegido para postagem de reviews apenas por um perfil de usuario "ROLE_MEMBER". 
 
-### `yarn build`
+# Tecnologias usadas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Front end
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* HTML/CSS/TypeScript
+* React
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Ferramentas
 
-### `yarn eject`
+* Axios
+* Bootstrap
+* React router dom
+* react hook form
+* jwt-decode
+* Bcrypt
+* localStorage
+* API MovieFlix -> [MovieFlix-API](https://github.com/Jpoao/movieFlix-API-challenge)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
