@@ -2,6 +2,7 @@ import { AxiosRequestConfig } from "axios";
 import Review from "components/Review";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 import { hasAnyRoles } from "util/auth";
 import { requestBackend } from "util/requests";
 import "./styles.css";
@@ -18,16 +19,19 @@ type ReviewData = {
   };
 };
 
-const params: AxiosRequestConfig = {
-  url: "/movies/1/reviews",
-  withCredentials: true,
-};
+type UrlParams = { movieId: string}
 
 const MoviesReview = () => {
+
+  const { movieId } = useParams<UrlParams>();
 
   const [reviewState, setReviewState] = useState<[ReviewData]>();
 
   useEffect(() => {
+    const params: AxiosRequestConfig = {
+      url: `/movies/${movieId}/reviews`,
+      withCredentials: true,
+    };
     requestBackend(params).then((response) => {
       setReviewState(response.data);
     });
@@ -45,7 +49,7 @@ const MoviesReview = () => {
 
   return (
     <div className="page-container">
-      <h1>Tela detalhes do filme id: 1</h1>
+      <h1>Tela detalhes do filme id: {movieId}</h1>
       {hasAnyRoles(["ROLE_MEMBER"]) && (
         <div className="input-containter">
           <form onSubmit={handleSubmit(onSubmit)}>
