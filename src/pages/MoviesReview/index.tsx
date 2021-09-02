@@ -35,11 +35,12 @@ const MoviesReview = () => {
     requestBackend(params).then((response) => {
       setReviewState(response.data);
     });
-  }, [reviewState?.length]);
+  });
 
   const {
     register,
     handleSubmit,
+    formState: { errors },
   } = useForm<FormData>();
 
   const onSubmit = (formData : FormData) => {
@@ -68,8 +69,11 @@ const MoviesReview = () => {
                 required: "Campo obrigatório",
               })}
               type="text"
-              className={"form-control base-input"}
+              className={`form-control base-input ${
+                errors.review ? "is-invalid" : ""
+              }`}
               placeholder="Digite sua avaliação aqui!*"
+              
               name="review"
             />
             <div className="review-submit">
@@ -80,7 +84,7 @@ const MoviesReview = () => {
       )}
       <div className="review-container">
               {reviewState ? reviewState.map((element) => (
-                <Review name={element.user.name} text={element.text} key={element.user.id}/>
+                <Review name={element.user.name} text={element.text} key={element.text}/>
               )) : ""}
       </div>
     </div>

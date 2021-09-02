@@ -38,7 +38,7 @@ input.form-control.base-input {
 .login-submit .btn {
   border: none;
   font-size: 20px;
-  width: 50%;
+  width: 100%;
   font-weight: bold;
 }
 
