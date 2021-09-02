@@ -1,13 +1,37 @@
+import { AxiosRequestConfig } from "axios";
 import Review from "components/Review";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { hasAnyRoles } from "util/auth";
+import { requestBackend } from "util/requests";
 import "./styles.css";
 
 type FormData = {
   review: string;
 };
 
+type Review = {
+  text: string;
+  user: {
+    name: string;
+  };
+};
+
+const params: AxiosRequestConfig = {
+  url: "/movies/1/reviews",
+  withCredentials: true,
+};
+
 const MoviesReview = () => {
+  
+  const [review, setReview] = useState<[Review]>();
+
+  useEffect(() => {
+    requestBackend(params).then((response) => {
+      setReview(response.data);
+    });
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -15,7 +39,7 @@ const MoviesReview = () => {
   } = useForm<FormData>();
 
   const onSubmit = () => {
-    console.log("submmit");
+
   };
 
   return (
@@ -35,10 +59,10 @@ const MoviesReview = () => {
               placeholder="Digite sua avaliação aqui!*"
               name="review"
             />
+            <div className="review-submit">
+              <button className="btn">SALVAR AVALIAÇÂO</button>
+            </div>
           </form>
-          <div className="review-submit">
-            <button className="btn">SALVAR AVALIAÇÂO</button>
-          </div>
         </div>
       )}
       <div className="review-container">
